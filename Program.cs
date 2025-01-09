@@ -2,14 +2,49 @@
 {
     class Program
     {
-        static CommandHandler commandHandler;
+
         static void Main(string[] args)
         {
-            //first make a simple CLI that accept user inputs and arguments
-            commandHandler = new CommandHandler();
+            try
+            {
+                switch (args[0].ToLower())
+                {
+                    case "add":
+                        if (args.Length > 1)
+                            TaskManager.Add(args[1]);
+                        else
+                            Console.WriteLine("Argument missing");
+                        break;
+                    case "update":
+                        //TaskManager.Update();
+                        break;
+                    case "remove":
+                        //TaskManager.Remove();
+                        break;
+                    case "list":
+                        //TaskManager.List();
+                        break;
+                    case "mark-in-progress":
+                        //TaskManager.MarkInProgress();
+                        break;
+                    case "mark-done":
+                        //TaskManager.MarkDone();
+                        break;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Invalid command");
+                        Console.ForegroundColor = ConsoleColor.White;
 
-            Console.WriteLine("Welcome to the task tracker!\nplease enter the command task-cli to start\n");
-            commandHandler.ProcessCommands(Console.ReadLine());
+                        break;
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("No Commands ");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
         }
     }
 }
