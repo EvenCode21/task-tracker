@@ -15,7 +15,7 @@ namespace Task_Tracker_CLI
             // Add task
             var task = new Task
             {
-                Id = 1,
+                Id = FileManager.list.Count + 1,
                 Description = description,
                 Status = "to-do",
                 creationDate = DateTime.Now,
@@ -23,9 +23,6 @@ namespace Task_Tracker_CLI
             };
 
             tasks.Add(task.Id, task);
-
-            Console.WriteLine("Saved at id: {0} ", tasks[task.Id].Id);
-            Console.WriteLine(tasks[task.Id].Description);
             FileManager.Write(task);
         }
 
