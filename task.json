@@ -1,0 +1,37 @@
+[
+  {
+    "Id": 1,
+    "Description": "buy something",
+    "Status": "in-progress",
+    "creationDate": "2025-01-11T10:51:37.8435465-04:00",
+    "updateDate": "2025-01-11T10:51:37.8436143-04:00"
+  },
+  {
+    "Id": 2,
+    "Description": "something",
+    "Status": "done",
+    "creationDate": "2025-01-11T10:52:36.7496396-04:00",
+    "updateDate": "2025-01-11T10:52:36.749716-04:00"
+  },
+  {
+    "Id": 3,
+    "Description": "exchange",
+    "Status": "done",
+    "creationDate": "2025-01-11T10:40:37.819806-04:00",
+    "updateDate": "2025-01-11T10:40:37.8198828-04:00"
+  },
+  {
+    "Id": 4,
+    "Description": "cheaper",
+    "Status": "to-do",
+    "creationDate": "2025-01-11T10:48:05.0281205-04:00",
+    "updateDate": "2025-01-11T10:48:05.0281625-04:00"
+  },
+  {
+    "Id": 5,
+    "Description": "Even more dude",
+    "Status": "in-progress",
+    "creationDate": "2025-01-11T10:52:44.1413508-04:00",
+    "updateDate": "2025-01-11T10:52:44.1414186-04:00"
+  }
+]

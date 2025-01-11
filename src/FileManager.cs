@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Text.Json;
+using System.Threading.Tasks;
 using static System.Environment;
 
 
@@ -12,6 +14,12 @@ namespace Task_Tracker_CLI
         static FileManager()
         {
             list = Load();
+            list = list.OrderBy(a => a.Id).ToList();
+            foreach (var item in list)
+            {
+                TaskManager.tasks.Add(item.Id, item);
+            }
+            RefreshList();
         }
         public static void Write(Task task)
         {
@@ -21,7 +29,8 @@ namespace Task_Tracker_CLI
             };
             var list = Load();
             list.Add(task);
-            using(var sw = new StreamWriter("task.json"))
+            list = list.OrderBy(a => a.Id).ToList();
+            using (var sw = new StreamWriter("task.json"))
             {
                 sw.WriteLine(JsonSerializer.Serialize(list, option));
                 sw.Close();
@@ -57,6 +66,23 @@ namespace Task_Tracker_CLI
                 }
                 return new List<Task>();
             }
-        } 
+        }
+        
+        public static void RefreshList()
+        {
+            
+            var option = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
+
+            using (var sw = new StreamWriter("task.json"))
+            {
+                sw.WriteLine(JsonSerializer.Serialize(list, option));
+                sw.Close();
+            }
+
+        }
+
     }
 }
