@@ -16,6 +16,7 @@ namespace Task_Tracker_CLI
                 if (FileManager.list[i].Id == Id)
                 {
                     FileManager.list[i].Description = newDescription;
+                    FileManager.list[i].updateDate = DateTime.Now;
                     FileManager.RefreshList();
                     Console.WriteLine("Task {0} succesfully updated",id);
                     return;
@@ -121,6 +122,7 @@ namespace Task_Tracker_CLI
                 if (FileManager.list[i].Id == Id)
                 {
                     FileManager.list[i].Status = "in-progress";
+                    FileManager.list[i].updateDate = DateTime.Now;
                     FileManager.RefreshList();
                     Console.WriteLine("Task {0} succesfully updated", id);
                     return;
@@ -137,6 +139,7 @@ namespace Task_Tracker_CLI
                 if (FileManager.list[i].Id == Id)
                 {
                     FileManager.list[i].Status = "done";
+                    FileManager.list[i].updateDate = DateTime.Now;
                     FileManager.RefreshList();
                     Console.WriteLine("Task {0} succesfully updated", id);
                     return;
