@@ -67,6 +67,7 @@ namespace Task_Tracker_CLI
                     return;
                 }
             }
+            Console.WriteLine("task not found!");
             
         }
 

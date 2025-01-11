@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # task tracker cli
 
 - clone the repo, build the solution and generate the executable with publish
@@ -10,3 +11,7 @@
 **(made using visual studio and C#)**
 
 **EvenCode21**
+=======
+# task-tracker
+task tracker cli
+>>>>>>> origin/main
