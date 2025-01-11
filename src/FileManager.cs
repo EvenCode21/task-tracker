@@ -10,7 +10,7 @@ namespace Task_Tracker_CLI
     class FileManager
     {
         static public List<Task> list = new List<Task>();
-
+        static string path = Directory.CreateDirectory(GetFolderPath(SpecialFolder.ApplicationData) + "\\task-cli").ToString();
         static FileManager()
         {
             list = Load();
@@ -30,7 +30,7 @@ namespace Task_Tracker_CLI
             var list = Load();
             list.Add(task);
             list = list.OrderBy(a => a.Id).ToList();
-            using (var sw = new StreamWriter("task.json"))
+            using (var sw = new StreamWriter(path + "\\task.json"))
             {
                 sw.WriteLine(JsonSerializer.Serialize(list, option));
                 sw.Close();
@@ -42,7 +42,7 @@ namespace Task_Tracker_CLI
         {
             try
             {
-                using (var sr = new StreamReader("task.json"))
+                using (var sr = new StreamReader(path + "\\task.json"))
                 {
                     var json = sr.ReadToEnd();
                     sr.Close();
@@ -60,7 +60,7 @@ namespace Task_Tracker_CLI
                     WriteIndented = true
                 };
 
-                using(var sw = new StreamWriter("task.json"))
+                using(var sw = new StreamWriter(path + "\\task.json"))
                 {
 
                 }
@@ -76,7 +76,7 @@ namespace Task_Tracker_CLI
                 WriteIndented = true
             };
 
-            using (var sw = new StreamWriter("task.json"))
+            using (var sw = new StreamWriter(path + "\\task.json"))
             {
                 sw.WriteLine(JsonSerializer.Serialize(list, option));
                 sw.Close();
